@@ -4,15 +4,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Order = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const item = location.state?.item || {}; // Retrieve item details from navigation state
+  const item = location.state?.item || {}; 
 
   const [customerName, setCustomerName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [specialRequests, setSpecialRequests] = useState("");
-  const [quantity, setQuantity] = useState(1); // Default quantity is 1
+  const [quantity, setQuantity] = useState(1); 
 
-  const totalPrice = (item.price * quantity).toFixed(2); // Calculate total price
+  const totalPrice = (item.price * quantity).toFixed(2);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +54,6 @@ const Order = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-8 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-6">Order</h1>
 
-      {/* Order Details Section */}
       <div className="bg-white shadow-lg rounded-lg p-6 max-w-md w-full">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">{item.name}</h2>
         <img
@@ -65,7 +64,6 @@ const Order = () => {
         <p className="text-gray-600 text-center mb-2">{item.description}</p>
         <p className="text-gray-800 font-bold text-center mb-4">${item.price.toFixed(2)} each</p>
 
-        {/* Order Form */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-800 font-semibold mb-1">
@@ -136,7 +134,6 @@ const Order = () => {
             />
           </div>
 
-          {/* Total Price Display */}
           <div className="text-center text-lg font-semibold text-gray-800 mb-4">
             Total Cost: <span className="text-primary">${totalPrice}</span>
           </div>

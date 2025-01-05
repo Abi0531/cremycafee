@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaHome, FaTachometerAlt, FaCog, FaBars, FaAngleLeft } from "react-icons/fa";
+import { FaHome, FaTachometerAlt, FaCog, FaBars, FaAngleLeft,  FaUser } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -28,6 +28,11 @@ const Sidebar = () => {
           <li className="p-3 hover:bg-gray-700 flex items-center">
             <FaTachometerAlt className="text-lg" />
             {isOpen && <span className="ml-3 text-sm">Dashboard</span>}
+          </li>
+
+          <li className="p-3 hover:bg-gray-700 flex items-center">
+            <FaBars className="text-lg" /> {/* Change the icon */}
+            {isOpen && <span className="ml-3 text-sm">Profile</span>} {/* Change the text */}
           </li>
 
           <li className="p-3 hover:bg-gray-700 flex items-center">
