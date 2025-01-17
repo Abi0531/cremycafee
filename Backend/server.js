@@ -68,6 +68,23 @@ const initializeDatabase = () => {
         )
     `;
 
+    const alterOrdersTableQuery = `
+    ALTER TABLE orders
+    ADD COLUMN status ENUM('inprogress', 'delivered') NOT NULL DEFAULT 'inprogress';
+    `;
+
+    // const createStafsTableQuery = `
+    //     CREATE TABLE IF NOT EXISTS stafs (
+    //         id INT AUTO_INCREMENT PRIMARY KEY,
+    //         name VARCHAR(255) NOT NULL,
+    //         email VARCHAR(255) NOT NULL,
+    //         contact VARCHAR(255) NOT NULL,
+    //         address VARCHAR(255) NOT NULL,
+    //         position VARCHAR(255) NOT NULL,
+    //         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    //     );
+    // `;
+
     db.query(createDatabaseQuery, (err) => {
         if (err) {
             console.error('Error creating database:', err);
@@ -105,6 +122,22 @@ const initializeDatabase = () => {
                   console.log("Orders table is ready.");
                 }
             });
+
+            db.query(alterOrdersTableQuery, (err) => {
+                if (err) {
+                    console.error("Error altering orders table:", err);
+                } else {
+                    console.log("Orders table altered successfully.");
+                }
+            });
+
+            // db.query(createStafsTable, (err) => {
+            //   if (err) {
+            //     console.error("Error creating staf table:", err);
+            //   } else {
+            //     console.log("Stafs table is ready.");
+            //   }
+            // });
         });
     });
 };

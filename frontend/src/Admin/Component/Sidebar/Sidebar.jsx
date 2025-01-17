@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaHome, FaTachometerAlt, FaCog, FaBars, FaAngleLeft,  FaUser } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -27,12 +28,34 @@ const Sidebar = () => {
 
           <li className="p-3 hover:bg-gray-700 flex items-center">
             <FaTachometerAlt className="text-lg" />
-            {isOpen && <span className="ml-3 text-sm">Dashboard</span>}
+            {isOpen && (<Link to="/admin/dashboard" className="ml-3 text-sm text-white">
+            Dashboard
+            </Link>)}
           </li>
 
           <li className="p-3 hover:bg-gray-700 flex items-center">
             <FaBars className="text-lg" /> {/* Change the icon */}
-            {isOpen && <span className="ml-3 text-sm">Profile</span>} {/* Change the text */}
+            {isOpen && (<Link to="/admin/order" className="ml-3 text-sm text-white">
+            Order Management
+            </Link>)}
+          </li>
+
+          <li className="p-3 hover:bg-gray-700 flex items-center">
+            <FaBars className="text-lg" /> {/* Icon */}
+            {isOpen && (
+              <Link to="/admin/staff" className="ml-3 text-sm text-white">
+                Staff Management
+              </Link>
+            )}
+          </li>
+
+          <li className="p-3 hover:bg-gray-700 flex items-center">
+            <FaBars className="text-lg" /> {/* Icon */}
+            {isOpen && (
+              <Link to="/admin/salary" className="ml-3 text-sm text-white">
+                Salary Management
+              </Link>
+            )}
           </li>
 
           <li className="p-3 hover:bg-gray-700 flex items-center">
