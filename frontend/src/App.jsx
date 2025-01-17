@@ -24,6 +24,9 @@ import AdminHome from './Admin/Component/Home/Adminhome.jsx';
 import StaffManagement from './Admin/Component/StaffManagement/StaffManagement.jsx';
 import SalaryManagement from './Admin/Component/SalaryManagement/SalaryManagement.jsx';
 import OrderManagement from './Admin/Component/OrderManagement/OrderManagement.jsx';
+import Adminhome from './Admin/Component/Home/Adminhome.jsx';
+import EditOrder from './Admin/Component/OrderManagement/EditOrder.jsx';
+
 
 const App = () => {
   useEffect(() => {
@@ -74,6 +77,9 @@ const App = () => {
                     <Route path="staff" element={<StaffManagement />} />
                     <Route path="salary" element={<SalaryManagement />} />
                     <Route path="order" element={<OrderManagement />} />
+                    <Route path="dashboard" element={<Adminhome />} />
+                    <Route path="editOrder" element={<EditOrder/>}/>
+
                   </Routes>
                 </div>
               </div>
